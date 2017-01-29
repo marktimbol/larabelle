@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/jobs/{job}', 'User\UserJobApplicationsController@store');
