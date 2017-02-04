@@ -27,6 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public $primaryKey = 'id';
+
     /**
     * Indicates if the IDs are auto-incrementing.
     *
@@ -34,13 +36,14 @@ class User extends Authenticatable
     */
     public $incrementing = false;
 
+
     public function applyTo(Job $job)
     {
-        return $this->jobApplications()->attach($job);
+        return $this->jobs()->attach($job);
     }
 
-    public function jobApplications()
+    public function jobs()
     {
-        return $this->belongsToMany(Job::class, 'user_job_applications', 'user_id', 'job_id');
+        return $this->belongsToMany(Job::class, 'user_jobs', 'user_id', 'job_id');
     }
 }

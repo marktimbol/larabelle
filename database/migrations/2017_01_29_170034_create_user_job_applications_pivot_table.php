@@ -13,7 +13,7 @@ class CreateUserJobApplicationsPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_job_applications', function (Blueprint $table) {
+        Schema::create('user_jobs', function (Blueprint $table) {
             $table->uuid('user_id');
             $table->integer('job_id')->unsigned();
 
@@ -39,6 +39,6 @@ class CreateUserJobApplicationsPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_job_applications');
+        Schema::dropIfExists('user_jobs');
     }
 }

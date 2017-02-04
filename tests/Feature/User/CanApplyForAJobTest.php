@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Web\User;
+namespace Tests\Feature\User;
 
 use App\Events\User\UserAppliedOnAJob;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -38,7 +38,7 @@ class CanApplyForAJobTest extends TestCase
     	$endpoint = "/jobs/$job->slug";
     	$request = $this->post($endpoint);
 
-    	$this->assertDatabaseHas('user_job_applications', [
+    	$this->assertDatabaseHas('user_jobs', [
     		'user_id'	=> $this->user->id,
     		'job_id'	=> $job->id,
     	]);

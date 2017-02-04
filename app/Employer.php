@@ -13,5 +13,11 @@ class Employer extends Model
     *
     * @var bool
     */
-    public $incrementing = false;    
+    public $incrementing = false;
+
+    public function jobs()
+    {
+    	return $this->hasMany(Job::class);
+    }
+
 }

@@ -17,10 +17,13 @@ class UserJobApplicationsController extends Controller
     public function store(Request $request, Job $job)
     {
     	$user = auth()->user();
-    	$jobApplication = $user->applyTo($job);
+    	$user->applyTo($job);
         
-        event( new UserAppliedOnAJob($job) );
+        event( new UserAppliedOnAJob($user, $job) );
 
-    	return 'Done';
+    	return response()->json([
+            'success'   => true,
+            'job'   => $job,
+        ]);
     }
 }

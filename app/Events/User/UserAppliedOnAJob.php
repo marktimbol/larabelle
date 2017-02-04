@@ -2,6 +2,8 @@
 
 namespace App\Events\User;
 
+use App\Job;
+use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -14,14 +16,19 @@ class UserAppliedOnAJob
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $user;
+
+    public $job;
+    
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user, Job $job)
     {
-        //
+        $this->user = $user;
+        $this->job = $job;
     }
 
     /**
