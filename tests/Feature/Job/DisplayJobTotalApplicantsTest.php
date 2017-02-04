@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class DisplayJobTotalApplicantsTest extends TestCase
 {
-	use DatabaseTransactions;
+	use DatabaseMigrations;
 
 	public function setUp()
 	{

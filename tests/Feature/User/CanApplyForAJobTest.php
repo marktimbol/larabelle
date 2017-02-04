@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\User;
 
+use Tests\TestCase;
 use App\Events\User\UserAppliedOnAJob;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Tests\TestCase;
 
 class CanApplyForAJobTest extends TestCase
 {
