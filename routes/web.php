@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/jobs/{job}', [
+	'as' => 'jobs.apply',
+	'uses' => 'User\UserJobApplicationsController@store'
+]);
 
-Route::post('/jobs/{job}', 'User\UserJobApplicationsController@store');
 Route::resource('jobs', 'JobsController', [
 	'only'	=> ['index', 'show']
 ]);

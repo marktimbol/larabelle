@@ -9,7 +9,6 @@ use Illuminate\Contracts\Console\Kernel;
 
 trait CreateModels
 {
-
     protected function createUser($attributes = null)
     {
         return factory(User::class)->create($attributes);

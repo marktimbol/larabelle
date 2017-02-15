@@ -40,6 +40,7 @@ $factory->define(App\Employer::class, function (Faker\Generator $faker) {
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
+        'id'    => $faker->uuid,
         'employer_id'   => function() {
             return factory(App\Employer::class)->create()->id;
         },

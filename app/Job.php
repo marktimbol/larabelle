@@ -8,6 +8,13 @@ class Job extends Model
 {
 	protected $fillable = ['title', 'desc'];
 
+    /**
+    * Indicates if the IDs are auto-incrementing.
+    *
+    * @var bool
+    */
+    public $incrementing = false;
+
     public function getRouteKeyName()
     {
     	return 'slug';
@@ -26,7 +33,7 @@ class Job extends Model
 
     public function applicants()
     {
-        return $this->belongsToMany(User::class, 'user_jobs', 'job_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_jobs', 'job_id', 'user_id')->withTimestamps();
     }
 
     public function url()
