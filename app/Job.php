@@ -27,5 +27,10 @@ class Job extends Model
     public function applicants()
     {
         return $this->belongsToMany(User::class, 'user_jobs', 'job_id', 'user_id');
-    }    
+    }
+
+    public function url()
+    {
+        return route('jobs.show', $this->slug);
+    }
 }

@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::post('/jobs/{job}', 'User\UserJobApplicationsController@store');
+Route::resource('jobs', 'JobsController', [
+	'only'	=> ['index', 'show']
+]);
